@@ -1,0 +1,102 @@
+.deep-purple.darken-1 {
+    background-color: #5e35b1 !important;
+}
+
+.deep-purple {
+    background-color: #673ab7 !important;
+}
+
+nav {
+    color: #fff;
+    background-color: #ee6e73;
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+}
+
+nav .nav-wrapper {
+    position: relative;
+    height: 100%;
+}
+
+nav ul.left {
+    float: left;
+}
+
+ul:not(.browser-default) {
+    padding-left: 0;
+    list-style-type: none;
+}
+.left {
+    float: left !important;
+}
+nav ul {
+    margin: 0;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+
+/* ul:not(.browser-default) li {
+    list-style-type: none;
+} */
+
+nav ul li {
+    transition: background-color .3s;
+    float: left;
+    padding: 0;
+}
+
+/* *, *:before, *:after {
+    box-sizing: inherit;
+} */
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+ul:not(.browser-default) {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+nav ul a:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+a:active, a:hover {
+    outline: 0;
+}
+nav ul a {
+    transition: background-color .3s;
+    font-size: 1rem;
+    color: #fff;
+    display: block;
+    padding: 0 15px;
+    cursor: pointer;
+}
+nav a {
+    color: #fff;
+}
+
+a {
+    color: #039be5;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.white-text {
+    color: #fff !important;
+}

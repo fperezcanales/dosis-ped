@@ -178,17 +178,12 @@ export default class Home extends React.Component {
 													presentacion2
 												} = this.state;
 
-												this.validateAllFields()
-												// if (this.state.dosis <= 0) {
-												// 	this.setState({
-												// 		validation: 'Dosis es obligatorio'
-												// 	})
-												// 	return;
-												// }
+												//this.validateAllFields()
+												
 
-												// this.setState({
-												// 	resultado: (((peso * dosis) * presentacion2) / presentacion1).toFixed(1)
-												// })
+												this.setState({
+													resultado: (((peso * dosis) * presentacion2) / presentacion1).toFixed(1)
+												})
 											}}
 										>Calcular</button>
 
