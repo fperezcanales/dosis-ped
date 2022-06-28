@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import { Box, Button, InputAdornment } from '@mui/material';
+import { Alert, Box, Button, Dialog, DialogContent, DialogTitle, InputAdornment } from '@mui/material';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -22,6 +22,17 @@ const FormularioSchema = Yup.object().shape({
 export default function Forms() {
 
   const [resultado, setResultado] = React.useState('');
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (value) => {
+    setOpen(false);
+  };
+
 
   return (
     <Formik
@@ -45,8 +56,8 @@ export default function Forms() {
         } = values;
 
         const x = (((peso * dosis) * presentacion2) / presentacion1).toFixed(1);
-        setResultado(x)
-
+        setResultado(`Resultado: ${x} ML.`)
+        handleClickOpen()
         //}, 400);
       }}
     >
@@ -59,11 +70,22 @@ export default function Forms() {
         handleBlur,
         handleSubmit,
         isSubmitting,
+        resetForm
         /* and other goodies */
       }) => (
 
 
         <form onSubmit={handleSubmit}>
+
+          <Dialog onClose={handleClose} open={open}>
+            <DialogTitle>Resultado</DialogTitle>
+            <DialogContent>
+              <Alert>
+                {resultado}
+              </Alert>
+            </DialogContent>
+
+          </Dialog>
 
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6}>
@@ -84,7 +106,7 @@ export default function Forms() {
                 InputProps={{
                   startAdornment: <InputAdornment position="start">kg</InputAdornment>,
                 }}
-                helperText={errors.peso && touched.peso ? errors.peso: ''}
+                helperText={errors.peso && touched.peso ? errors.peso : ''}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -104,7 +126,7 @@ export default function Forms() {
                 InputProps={{
                   endAdornment: <InputAdornment position="start"> (mg / kg / dosis)</InputAdornment>,
                 }}
-                helperText={errors.dosis && touched.dosis ? errors.dosis: ''}
+                helperText={errors.dosis && touched.dosis ? errors.dosis : ''}
               />
             </Grid>
 
@@ -126,7 +148,7 @@ export default function Forms() {
                 InputProps={{
                   endAdornment: <InputAdornment position="start"> mg</InputAdornment>,
                 }}
-                helperText={errors.presentacion1 && touched.presentacion1 ? errors.presentacion1: ''}
+                helperText={errors.presentacion1 && touched.presentacion1 ? errors.presentacion1 : ''}
               />
             </Grid>
 
@@ -147,7 +169,7 @@ export default function Forms() {
                 InputProps={{
                   endAdornment: <InputAdornment position="start"> mL</InputAdornment>,
                 }}
-                helperText={errors.presentacion2 && touched.presentacion2 ? errors.presentacion2: ''}
+                helperText={errors.presentacion2 && touched.presentacion2 ? errors.presentacion2 : ''}
               />
             </Grid>
           </Grid>
@@ -155,7 +177,9 @@ export default function Forms() {
           <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '2rem' }}>
 
             <Button
-              //onClick={handleBack} 
+              onClick={()=>{
+                resetForm()
+              }} 
               sx={{ mt: 3, ml: 1 }}
             >
               Limpiar
