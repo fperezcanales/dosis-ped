@@ -6,7 +6,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import DosisForms from './DosisForms';
+import DosisForms from './form/DosisForms';
 
 
 const theme = createTheme();

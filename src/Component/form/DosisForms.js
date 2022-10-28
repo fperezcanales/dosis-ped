@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import { Alert, Box, Button, Dialog, DialogContent, DialogTitle, InputAdornment } from '@mui/material';
@@ -18,9 +18,9 @@ const FormularioSchema = Yup.object().shape({
 
 export default function DosisForms() {
 
-  const [resultado, setResultado] = React.useState('');
+  const [resultado, setResultado] = useState('');
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -87,6 +87,7 @@ export default function DosisForms() {
                 id="peso"
                 name="peso"
                 label="Peso"
+                placeholder='Ingrese su peso'
                 fullWidth
 
                 onChange={handleChange}
@@ -98,6 +99,7 @@ export default function DosisForms() {
                 type='number'
                 InputProps={{
                   startAdornment: <InputAdornment position="start">kg</InputAdornment>,
+                  'aria-label': 'peso'
                 }}
                 helperText={errors.peso && touched.peso ? errors.peso : ''}
               />
@@ -108,6 +110,7 @@ export default function DosisForms() {
                 id="dosis"
                 name="dosis"
                 label="Dosis"
+                placeholder='Ingrese la dosis'
                 fullWidth
 
                 onChange={handleChange}
@@ -130,6 +133,8 @@ export default function DosisForms() {
                 id="presentacion1"
                 name="presentacion1"
                 label="Presentación"
+                placeholder='Ingrese la presentación'
+
                 fullWidth
 
                 onChange={handleChange}
