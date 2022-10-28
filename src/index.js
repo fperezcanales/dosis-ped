@@ -5,15 +5,8 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 import {
-  BrowserRouter as Router,
-  Route, Link
-
-
+  BrowserRouter as Router
 } from 'react-router-dom';
-import Home from './Component/Home';
-import About from './Component/About';
-
-
 
 ReactDOM.render(
   <Router>
