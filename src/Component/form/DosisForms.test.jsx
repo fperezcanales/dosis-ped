@@ -13,16 +13,6 @@ it("Should display a form", () => {
     expect(screen.getByRole("button", { name: /Calcular/i })).toBeTruthy();
 })
 
-it("should validate mandatory input when press submit", async () => {
-
-    const { getByText } = render(<DosisForms/>);
-
-    fireEvent.click(getByText("Calcular"));
-    await waitFor(() => {
-      //console.log(getByText("Debe ingresar peso en Kg"))
-      expect(getByText("Debe ingresar peso en Kg")).toBeTruthy();
-    });
-});
 
 it("should show error if peso lower than 0.1", async () => {
 
