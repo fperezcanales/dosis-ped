@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Checkout from './Component/Checkout';
+import PresenterDosisForm from './Component/PresenterDosisForm';
 
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
       <div className="App">
       <div className="container">
         <div className="row">
-          <Checkout />
+          <PresenterDosisForm />
         </div>
       </div>
     </div>

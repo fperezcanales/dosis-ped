@@ -16,7 +16,7 @@ const FormularioSchema = Yup.object().shape({
     .min(1, 'Debe ingresar mL').max(1000, '¿Más de 1000 mL?').required('Obligatorio'),
 });
 
-export default function Forms() {
+export default function DosisForms() {
 
   const [resultado, setResultado] = React.useState('');
 

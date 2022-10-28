@@ -4,10 +4,9 @@ import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
 import Paper from '@mui/material/Paper';
-import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Forms from './Forms';
+import DosisForms from './DosisForms';
 
 
 const theme = createTheme();
@@ -34,15 +33,7 @@ export default function Checkout() {
       </AppBar>
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
-
-          <React.Fragment>
-
-            <React.Fragment>
-              <Forms />
-
-            </React.Fragment>
-
-          </React.Fragment>
+          <DosisForms />
         </Paper>
       </Container>
     </ThemeProvider>
