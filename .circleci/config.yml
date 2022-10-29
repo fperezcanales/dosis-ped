@@ -7,8 +7,11 @@ orbs:
   node: circleci/node@4.7
 
 jobs:
-  build_and_test:
-    executor: node/default
+  build_test_and_deploy:
+    docker:
+      - image: 'circleci/node@8'
+    working_directory: ~/repo
+    
     steps:
       - checkout
       - node/install-packages:
@@ -19,18 +22,8 @@ jobs:
       - run:
           command: npm run build
           name: Build app
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - .
-  deploy-job:
-    docker:
-      - image: circleci/node@4.7 #<docker-image-name-tag>
-    working_directory: ~/project
-    
-    steps:
       - run:
-          name: Deploy Main to Firebase
+          name: 'Deploy Main to Firebase Hosting'
           command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
 
 # Invoke jobs via workflows
@@ -39,10 +32,4 @@ workflows:
   test_my_app: # This is the name of the workflow
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - build_and_test
-      - deploy-job:
-          requires:
-            - build_and_test # only deploy if the build_and_test job has completed
-          filters:
-            branches:
-              only: circleci-project-setup # only deploy when on main
+      - build_test_and_deploy
