@@ -9,9 +9,9 @@ orbs:
 jobs:
   build_test_and_deploy:
     docker:
-      - image: 'circleci/node@8'
+      - image: circleci/node:8
     working_directory: ~/repo
-    
+
     steps:
       - checkout
       - node/install-packages:
