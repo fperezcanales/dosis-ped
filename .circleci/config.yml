@@ -23,8 +23,13 @@ jobs:
           root: ~/project
           paths:
             - .
-
-  deploy:
+  deploy-job:
+    docker:
+      - image: fperez/dosis-ped #<docker-image-name-tag>
+        auth:
+          username: menucloudcl #mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    working_directory: /tmp/my-project
     steps:
       - run:
           name: Deploy Main to Firebase
@@ -37,7 +42,7 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build_and_test
-      - deploy:
+      - deploy-job:
           requires:
             - build_and_test # only deploy if the build_and_test job has completed
           filters:
