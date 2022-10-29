@@ -1,5 +1,5 @@
 {
-  "name": "firehosting",
+  "name": "dosis-ped",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,9 +11,11 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^5.0.2",
+    "firebase": "^9.13.0",
     "formik": "^2.2.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^6.4.2",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1",
     "yup": "^0.32.11"
