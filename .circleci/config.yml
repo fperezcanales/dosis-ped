@@ -25,11 +25,9 @@ jobs:
             - .
   deploy-job:
     docker:
-      - image: menucloudcl/dosis-ped #<docker-image-name-tag>
-        auth:
-          username: menucloudcl #mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-    working_directory: /tmp/my-project
+      - image: circleci/node@4.7 #<docker-image-name-tag>
+    working_directory: ~/project
+    
     steps:
       - run:
           name: Deploy Main to Firebase
