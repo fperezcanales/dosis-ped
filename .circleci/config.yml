@@ -25,7 +25,7 @@ jobs:
           name: Build app
       - run:
           name: 'Deploy Main to Firebase Hosting'
-          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+          command: /home/circleci/repo/node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
