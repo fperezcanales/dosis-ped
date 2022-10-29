@@ -23,13 +23,23 @@ jobs:
           root: ~/project
           paths:
             - .
+
+  deploy:
+    steps:
+      - run:
+          name: Deploy Main to Firebase
+          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  test_my_app: # This is the name of the workflow, feel free to change it to better match your workflow.
+  test_my_app: # This is the name of the workflow
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build_and_test
-      # - node/test:
-        #  version: '16.10'
-        #  pkg-manager: npm
+      - deploy:
+          requires:
+            - build_and_test # only deploy if the build_and_test job has completed
+          filters:
+            branches:
+              only: circleci-project-setup # only deploy when on main
