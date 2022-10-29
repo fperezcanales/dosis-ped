@@ -25,7 +25,7 @@ jobs:
             - .
   deploy-job:
     docker:
-      - image: fperez/dosis-ped #<docker-image-name-tag>
+      - image: menucloudcl/dosis-ped #<docker-image-name-tag>
         auth:
           username: menucloudcl #mydockerhub-user
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
