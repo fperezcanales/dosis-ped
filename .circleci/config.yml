@@ -12,7 +12,6 @@ jobs:
     steps:
       - checkout
       - node/install-packages:
-          version: '16.10'
           pkg-manager: npm
       - run:
           command: npm test
