@@ -17,6 +17,7 @@ jobs:
       - node/install-packages:
           pkg-manager: npm
       - run: npm install
+      - run: npm i firebase-tools
       - run:
           command: npm test
           name: Run tests
